@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>鹤辞 - 个人分享页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7c3aed',
+                        secondary: '#0ea5e9',
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .btn-gradient-1 {
+                background: linear-gradient(135deg, #22c55e, #10b981);
+            }
+            .btn-gradient-2 {
+                background: linear-gradient(135deg, #fb923c, #f97316);
+            }
+            .btn-gradient-3 {
+                background: linear-gradient(135deg, #f472b6, #ec4899);
+            }
+            .btn-gradient-4 {
+                background: linear-gradient(135deg, #333842, #1f2937);
+            }
+            .btn-gradient-5 {
+                background: linear-gradient(135deg, #38bdf8, #8b5cf6);
+            }
+            .btn-gradient-6 {
+                background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            }
+            .btn-gradient-7 {
+                background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            }
+            .card-shadow {
+                box-shadow: 0 4px 20px rgba(124, 58, 237, 0.08);
+            }
+            .dark .card-shadow {
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+            }
+            /* ColorOS17 凝光浮岛｜增加微弱内发光 */
+            .coloros-float-nav {
+                @apply backdrop-blur-3xl border;
+                background: rgba(255, 255, 255, 0.18);
+                border-color: rgba(255, 255, 255, 0.35);
+                box-shadow:
+                    0 6px 22px rgba(0,0,0,0.08),
+                    inset 0 1px 1px rgba(255,255,255,0.45);
+                -webkit-backdrop-filter: blur(24px);
+                backdrop-filter: blur(24px);
+            }
+            .dark .coloros-float-nav {
+                background: rgba(0, 0, 0, 0.18);
+                border-color: rgba(255, 255, 255, 0.12);
+                box-shadow:
+                    0 6px 22px rgba(0,0,0,0.25),
+                    inset 0 1px 1px rgba(255,255,255,0.15);
+            }
+            /* 玻璃弹窗 */
+            .glass-modal {
+                @apply backdrop-blur-xl border rounded-2xl;
+                background: rgba(255, 255, 255, 0.55);
+                border-color: rgba(255, 255, 255, 0.45);
+                -webkit-backdrop-filter: blur(24px);
+                backdrop-filter: blur(24px);
+            }
+            .dark .glass-modal {
+                background: rgba(30, 41, 59, 0.5);
+                border-color: rgba(255, 255, 255, 0.1);
+            }
+            /* 卡片玻璃效果 */
+            .glass-card {
+                @apply backdrop-blur-md border;
+                background: rgba(255, 255, 255, 0.65);
+                -webkit-backdrop-filter: blur(18px);
+                backdrop-filter: blur(18px);
+                border-color: rgba(255,255,255,0.4);
+            }
+            .dark .glass-card {
+                background: rgba(30, 41, 59, 0.55);
+                border-color: rgba(255,255,255,0.08);
+            }
+        }
+    </style>
+</head>
+<!-- 渐变背景，给玻璃效果提供底色 -->
+<body class="min-h-screen py-8 px-4 pb-24 transition-colors duration-300
+bg-[linear-gradient(135deg,#e0f2fe_0%,#f5f3ff_50%,#ffe4e6_100%)]
+dark:bg-[linear-gradient(135deg,#0f172a_0%,#1e1b4b_50%,#1f2937_100%)]">
+    <div class="max-w-md mx-auto relative">
+        <!-- 深色切换按钮 -->
+        <button id="themeToggle" class="absolute right-0 -top-2 w-10 h-10 rounded-full glass-card card-shadow flex items-center justify-center text-slate-700 dark:text-slate-200 z-10">
+            <i class="fa fa-moon-o dark:hidden"></i>
+            <i class="fa fa-sun-o hidden dark:inline-block"></i>
+        </button>
+        <!-- 头部头像+标题 -->
+        <div class="glass-card rounded-2xl p-5 card-shadow mb-5">
+            <div class="flex items-center gap-4">
+                <div class="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+                    <img src="https://p3-flow-image-sign.byteimg.com/tos-cn-i-a9rns2rl98/30014000349c40389200f02241003301~tplv-a9rns2rl98-image.image" alt="头像" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold text-slate-800 dark:text-slate-100">鹤辞 个人分享页</h1>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">且听风吟，静待花开</p>
+                </div>
+            </div>
+        </div>
+        <!-- 社交主页板块 -->
+        <div class="glass-card rounded-2xl p-5 card-shadow mb-5">
+            <div class="flex items-center gap-2 mb-4">
+                <i class="fa fa-globe text-primary text-lg"></i>
+                <h2 class="font-bold text-slate-700 dark:text-slate-200 text-lg">社交主页</h2>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+                <a href="https://www.coolapk.com/u/36442657" target="_blank" class="btn-gradient-1 text-white py-3.5 rounded-xl text-center font-medium transition-transform active:scale-95">
+                    <i class="fa fa-android mr-1"></i>酷安
+                </a>
+                <a href="https://www.kuaishou.com/profile/3212225113" target="_blank" class="btn-gradient-2 text-white py-3.5 rounded-xl text-center font-medium transition-transform active:scale-95">
+                    <i class="fa fa-play-circle mr-1"></i>快手
+                </a>
+                <a href="https://space.bilibili.com/3546752053414598" target="_blank" class="btn-gradient-3 text-white py-3.5 rounded-xl text-center font-medium transition-transform active:scale-95">
+                    <i class="fa fa-play mr-1"></i>B站
+                </a>
+                <a href="https://www.douyin.com/user/tg_hecinb666" target="_blank" class="btn-gradient-4 text-white py-3.5 rounded-xl text-center font-medium transition-transform active:scale-95">
+                    <i class="fa fa-music mr-1"></i>抖音
+                </a>
+            </div>
+        </div>
+        <!-- 专属福利板块 -->
+        <div class="glass-card rounded-2xl p-5 card-shadow mb-5">
+            <div class="flex items-center gap-2 mb-4">
+                <i class="fa fa-gift text-primary text-lg"></i>
+                <h2 class="font-bold text-slate-700 dark:text-slate-200 text-lg">专属福利</h2>
+            </div>
+            <a href="#" class="block bg-gradient-to-r from-orange-400 to-rose-400 rounded-xl p-4 text-white transition-transform active:scale-95">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <div class="font-bold">福利通道</div>
+                        <div class="text-sm opacity-90 mt-1">点击查看详情</div>
+                    </div>
+                    <span class="bg-white/25 px-3 py-1 rounded-full text-sm">立即查看</span>
+                </div>
+            </a>
+        </div>
+        <!-- 交流社群板块 -->
+        <div class="glass-card rounded-2xl p-5 card-shadow mb-5">
+            <div class="flex items-center gap-2 mb-4">
+                <i class="fa fa-users text-primary text-lg"></i>
+                <h2 class="font-bold text-slate-700 dark:text-slate-200 text-lg">交流社群</h2>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+                <a href="https://qm.qq.com/cgi-bin/qm/qr?k=894527987" target="_blank" class="btn-gradient-5 text-white py-3.5 rounded-xl text-center font-medium transition-transform active:scale-95">
+                    <i class="fa fa-qq mr-1"></i>QQ群① 894527987
+                </a>
+                <a href="https://qm.qq.com/cgi-bin/qm/qr?k=996528386" target="_blank" class="btn-gradient-6 text-white py-3.5 rounded-xl text-center font-medium transition-transform active:scale-95">
+                    <i class="fa fa-qq mr-1"></i>QQ群② 996528386
+                </a>
+                <a href="https://pd.qq.com/g/pd06419503" target="_blank" class="btn-gradient-7 text-white py-3.5 rounded-xl text-center font-medium transition-transform active:scale-95">
+                    <i class="fa fa-comments mr-1"></i>QQ频道
+                </a>
+                <a href="https://t.me/HeCinb666" target="_blank" class="btn-gradient-4 text-white py-3.5 rounded-xl text-center font-medium transition-transform active:scale-95">
+                    <i class="fa fa-telegram mr-1"></i>Telegram
+                </a>
+            </div>
+        </div>
+        <!-- 底部版权 -->
+        <div class="text-center text-slate-400 text-sm py-3">
+            © 2026 鹤辞 分享页
+        </div>
+    </div>
+
+    <!--网盘选择弹窗-->
+    <div id="panModal" class="fixed inset-0 bg-black/40 z-[60] hidden items-center justify-center p-6">
+        <div class="glass-modal w-full max-w-sm p-6">
+            <h3 class="text-lg font-bold text-center mb-5 text-slate-800 dark:text-slate-100">选择网盘</h3>
+            <div class="space-y-3">
+                <a href="https://drive.uc.cn/s/6a63788adffa4?public=1" target="_blank" class="block text-center py-3 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-white active:scale-95 transition-transform">UC网盘</a>
+                <a href="https://pan.xunlei.com/s/VP5LP6zw-uEftIz5DtPwp_9vA1?pwd=9k3d#" target="_blank" class="block text-center py-3 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-white active:scale-95 transition-transform">迅雷网盘</a>
+                <a href="https://pan.quark.cn/s/4ec5ed7d6c24" target="_blank" class="block text-center py-3 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-white active:scale-95 transition-transform">夸克网盘</a>
+            </div>
+            <button id="closePanModal" class="w-full mt-5 py-3 rounded-xl bg-primary text-white active:scale-95 transition-transform">关闭</button>
+        </div>
+    </div>
+
+    <!-- ColorOS17浮岛导航｜缩小高度+玻璃通透+内发光凝光效果 -->
+    <div class="fixed bottom-6 left-5 right-5 rounded-[32px] coloros-float-nav z-50">
+        <div class="flex justify-around py-2">
+            <a href="#" class="text-slate-700 dark:text-slate-100 text-center flex flex-col items-center">
+                <i class="fa fa-home text-lg"></i>
+                <span class="text-xs mt-0.5">主页</span>
+            </a>
+            <button id="openPanBtn" class="text-slate-700 dark:text-slate-100 text-center flex flex-col items-center">
+                <i class="fa fa-cloud text-lg"></i>
+                <span class="text-xs mt-0.5">网盘</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // 主题本地存储
+        const toggle = document.getElementById('themeToggle');
+        if(localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)){
+            document.documentElement.classList.add('dark');
+        }
+        toggle.onclick = ()=>{
+            document.documentElement.classList.toggle('dark');
+            if(document.documentElement.classList.contains('dark')){
+                localStorage.setItem('theme','dark');
+            }else{
+                localStorage.setItem('theme','light');
+            }
+        }
+
+        //网盘弹窗逻辑
+        const panModal = document.getElementById('panModal');
+        document.getElementById('openPanBtn').onclick = ()=>{
+            panModal.classList.remove('hidden');
+            panModal.classList.add('flex');
+        }
+        document.getElementById('closePanModal').onclick = ()=>{
+            panModal.classList.add('hidden');
+            panModal.classList.remove('flex');
+        }
+        panModal.onclick = function(e){
+            if(e.target === panModal){
+                panModal.classList.add('hidden');
+                panModal.classList.remove('flex');
+            }
+        }
+    </script>
+</body>
+</html>
